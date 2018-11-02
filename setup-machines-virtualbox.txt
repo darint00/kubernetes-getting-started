@@ -1,0 +1,36 @@
+I setup 3 virtualbox vm's (Ubuntu 16.04)
+kube1 - 192.168.63.101
+kube2 - 192.168.63.102
+kube3 - 192.168.63.103
+kube4 - 192.168.63.104
+
+/etc/network/interfaces
+ADD
+auto enp0s8
+iface enp0s8 inet static
+address 192.168.63.???
+netmask 255.255.255.0
+
+
+/etc/hostname
+kube1  - change as appropriate
+
+Turn off SWAP
+swapoff -a
+
+Comment out SWAP entry  in /etc/fstab
+
+/etc/sudoers.d/darint
+darint ALL=(ALL) NOPASSWD:ALL
+
+
+
+system boot waits saying “Raise network interfaces"
+Edit /etc/dhcp/dhclient.conf and set timeout to a reasonable value, like
+
+timeout 15
+ & add to /etc/network/interfaces - based on your interface used
+
+ allow-hotplug eth0
+ auto eth0   remove this line!!!!!!
+ ....

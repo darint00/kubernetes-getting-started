@@ -1,0 +1,36 @@
+1.  Initilized Kube master
+    sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.63.101
+
+    * apiserver has the ip address of the master node
+    * pod network, is option specified in using flannel network per kubernetes doc
+
+
+
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+
+Your Kubernetes master has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+  sudo kubeadm join 192.168.63.101:6443 --token mvac21.xe21x54kz6bzwcvm --discovery-token-ca-cert-hash sha256:f0f5caf84934e828d83a10eff583e6fd27bc8f6d23d681821849a645e5768cff
+
+
+
+
+Install POD Network:
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.yml
+
+

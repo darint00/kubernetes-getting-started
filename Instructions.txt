@@ -1,0 +1,4 @@
+Instructions
+
+1.  Setup 3 virtualbox vm's.
+2.  See machines.txt for machine names and ip addresses

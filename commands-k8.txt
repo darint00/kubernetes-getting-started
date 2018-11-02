@@ -1,0 +1,29 @@
+Kubernetes Commands
+
+Get Node Information:
+    kubectl get nodes
+
+Get pod Information:
+    kubectl get pods
+
+Get Replicaset Information:
+    kubectl get replicaset 
+
+Get detailed information about pod:
+    kubectl describe pod <pod name>
+
+Delete pod:
+    kubectl delete development/nginx
+
+Delete replicaset
+    kubectl delete replicaset myapp-rs
+
+
+Run an App/Deploy pod:
+    kubectl run nginx --image nginx
+        * Docker Image obtained from dockerhub by default
+        * Can be configured to pull from other docker repository
+
+Run an App/Deploy pod Using yaml file:
+    kubectl create -f pod-nginx-definition.yaml
+
